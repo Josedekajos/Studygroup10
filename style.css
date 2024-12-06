@@ -119,3 +119,8 @@ a {
   text-decoration: none !important;
   font-size: 20px;
 }
+
+.login_button {
+  background-color: blue;
+  padding: 20px;
+}
