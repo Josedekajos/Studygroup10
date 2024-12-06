@@ -62,7 +62,7 @@
 
 body {
     font-family: Arial, sans-serif;
-      background: url('loginbackground.jpg') no-repeat center center fixed;
+      /* background: url('loginbackground.jpg') no-repeat center center fixed; */
       background-size: cover;
       margin: 0;
       display: flex;
@@ -118,9 +118,4 @@ button[type="submit"]:hover {
 a {
   text-decoration: none !important;
   font-size: 20px;
-}
-
-.login_button {
-  background-color: blue;
-  padding: 20px;
 }

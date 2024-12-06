@@ -13,7 +13,6 @@ body, h2, p, input, button, a {
     min-height: 100vh;
     background-color: #f3f4f6;
     font-family: Arial, sans-serif;
-    background-image: url('loginbackground.jpg');
     background-repeat: no-repeat;
     background-size: cover;
   }
