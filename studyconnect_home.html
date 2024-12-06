@@ -10,13 +10,13 @@
 <body>
     <header>
         <div class="logo">📖 StudyConnect</div>
-        <img src="study-banner.jpg" alt="Study Group Banner" class="home-banner">
+        <img src="logo.jpg" alt="Study Group Banner" class="home-banner">
         <div class="tagline">
             <h1>WELCOME To StudyConnect</h1>
             <h2>Where great minds meet and knowledge grows.</h2>
         </div>
         <div class="header-icons">
-            <a href="#">About Us</a>
+            <a href="#" onclick="showNotifications()">🔔</a>
             <a href="#">✉</a>
         </div>
     </header>
@@ -31,21 +31,46 @@
                 <li><a href="#">Calls</a></li>
                 <li><a href="#">User Profile</a></li>
                 <li><a href="#">Settings</a></li>
-                <li><a href="#">Create Group</a></li>
-            </ul>
-        </aside>
+                <li><a href="#" onclick="CreateGroup()">Create Group</a></li>
+                
+                <li><a href="#" onclick="viewPublicGroups()">View Public Study Groups</a></li>
 
-        <main>
-            <div class="main-buttons">
-                <button>Start a Chat</button>
-                <button>Create a Group</button>
-            </div>
-            <div class="schedule-meeting">
-                <button>Schedule a Meeting</button>
-            </div>
-        </main>
+ 
+
+<button id="CreateGroup()">Create Group</a></li>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Fill The Form Bellow To Create A Group</h2>
     </div>
+    <div class="modal-body">
+      
+        <form>
+            <label>Group Name:</label><br>
+            <input type="text" placeholder="Enter group name"><br><br>
+            <label>Group Description:</label><br>
+            <textarea placeholder="Enter group description"></textarea><br><br>
+            <label>Group Type:</label><br>
+            <select>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select><br><br>
+            <button type="button">Add Members</button><br><br>
+            
+            <button type="button" onclick="alert('Group created!')">Create the group!</button>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <h3>CREATING A GROUP</h3>
+    </div>
+  </div>
 
+</div>
     <footer>
         <div class="footer-section">
             <h3>Resources</h3>
@@ -71,5 +96,7 @@
             <p>GitHub</p>
         </div>
     </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
