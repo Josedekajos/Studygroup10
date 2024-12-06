@@ -107,3 +107,15 @@ footer {
 footer .footer-section h3 {
     margin: 0 0 5px;
 }
+
+a.link-button {
+    text-decoration: none;
+    background-color: blue;
+    padding: 15px;
+    color: white;
+}
+
+a.link-button:hover {
+    text-decoration: none;
+opacity: 0.7;
+}
