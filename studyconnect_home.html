@@ -144,28 +144,39 @@
     <div class="study-groups" id="groupContainer">
         <!-- Groups will be dynamically added here -->
     </div>
-
+    <script src="database.js"></script>
     <script>
-        // Sample Study Groups Data
-        const studyGroups = [
-            { name: "Mathematics Mastermind", members: 42, topic: "Advanced Calculus" },
-            { name: "Coding Collective", members: 65, topic: "Web Development" },
-            { name: "Science Scholars", members: 37, topic: "Physics & Chemistry" },
-            { name: "Language Learners", members: 53, topic: "Multilingual Communication" },
-            { name: "Business Brains", members: 48, topic: "Entrepreneurship" },
-            { name: "Art & Design Hub", members: 29, topic: "Creative Expression" },
-            { name: "Medical Minds", members: 56, topic: "Medical Sciences" },
-            { name: "History Hunters", members: 33, topic: "World History" },
-            { name: "Environmental Explorers", members: 41, topic: "Sustainability" },
-            { name: "Psychology Pioneers", members: 38, topic: "Cognitive Sciences" }
-        ];
+    
+        const studyGroupsFetched = fetch('http://localhost:3000/api/groups').then((response) => {
+            console.log(response);
+        });
+
+        var studyGroups = [];
+
+        fetch('http://localhost:3000/api/groups')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+           studyGroups = data;
+           renderGroups();
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+
+
 
         // Function to create group cards
         function renderGroups() {
             const groupContainer = document.getElementById('groupContainer');
-            studyGroups.forEach(group => {
+            studyGroups.map((group, index) => {
                 const groupCard = document.createElement('div');
                 groupCard.classList.add('group-card');
+                console.log(group);
                 groupCard.innerHTML = `
                     <h3>${group.name}</h3>
                     <p>Members: ${group.members}</p>
@@ -196,6 +207,5 @@
             alert('Create Group functionality coming soon!');
         });
     </script>
-    <script src="database.js"></script>
 </body>
 </html>

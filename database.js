@@ -2,12 +2,11 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const app = express();
 const port = 3000;
 
-// Middleware
-app.use(cors()); // Allow requests from your HTML page
+
+app.use(cors());
 app.use(bodyParser.json());
 
 // MySQL database connection
@@ -28,7 +27,7 @@ db.connect(err => {
 
 // Route to fetch data
 app.get('/api/data', (req, res) => {
-  const query = 'SELECT * FROM your_table_name'; 
+  const query = 'SELECT * FROM students'; 
   db.query(query, (err, results) => {
     if (err) {
       res.status(500).send(err.message);
@@ -38,10 +37,21 @@ app.get('/api/data', (req, res) => {
   });
 });
 
-// Route to insert data
+// Fetch all of the different groups that have been created.
+app.get('/api/groups', (req, res) => {
+    const query = 'SELECT * FROM studygroup.groups';
+    db.query(query, (err, results) => {
+      if (err) {
+        res.status(500).send(err.message);
+        return;
+      }
+      res.json(results);
+    });
+  });
+
 app.post('/api/data', (req, res) => {
-  const { column1, column2 } = req.body; // Replace with your column names
-  const query = 'INSERT INTO your_table_name (column1, column2) VALUES (?, ?)';
+  const { column1, column2 } = req.body;
+  const query = 'INSERT INTO studygroup.students (column1, column2) VALUES (?, ?)';
   db.query(query, [column1, column2], (err, result) => {
     if (err) {
       res.status(500).send(err.message);
